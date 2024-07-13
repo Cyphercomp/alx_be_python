@@ -1,24 +1,33 @@
-task = input("Enter your task:")
-priority = input ("priority (high/medium/low):")
-time_bound = input("is it time bound? (yes/no)")
+def main():
+    
+    task = input("Enter your task: ").strip()
+    priority = input("Priority (high/medium/low): ").strip().lower()
+    time_bound = input("Is it time-bound? (yes/no): ").strip().lower()
 
+    
+    reminder = ""
 
+    match priority:
+        case 'high':
+            reminder = f"'{task}' is a high priority task"
+        case 'medium':
+            reminder = f"'{task}' is a medium priority task"
+        case 'low':
+            reminder = f"'{task}' is a low priority task"
+        case _:
+            print("Invalid priority level. Please enter high, medium, or low.")
+            return
 
-match priority :
-    case "high" :
-        if time_bound == "yes" :
-            print(f"Reminder: '{task}' is a high priority task that requires immediate attention today!")
-        else :
-            print(f"Note: '{task}' is a high priority task that requires immediate attention today!")   
-    case "medium" :
-        if time_bound == "yes" :
-            print(f"Reminder: '{task}' is a medium priority task that requires  attention today!")
-        else :
-            print(f"Note: '{task}' is a medium priority task that requires  attention today!") 
-    case "low" :
-        if time_bound == "yes" :
-            print(f"Reminder: '{task}' is a  low priority task. Consider completing it when you have free time_bound.")
-        else :
-            print(f"Note: '{task}' is a low priority task. Consider completing it when you have free time_bound.") 
-    case _:
-        print("Invalid day entered.")
+    if time_bound == 'yes':
+        reminder += " that requires immediate attention today!"
+    elif time_bound == 'no':
+        reminder += ". Consider completing it when you have free time."
+    else:
+        print("Invalid input for time-bound. Please enter yes or no.")
+        return
+
+    
+    print("Reminder:", reminder)
+
+if __name__ == "__main__":
+    main()
