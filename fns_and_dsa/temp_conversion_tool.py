@@ -14,17 +14,14 @@ def convert_to_fahrenheit(celsius) :
 temperature = float(input("Enter the temperature to convert: "))
 degree = input("Is this temperature in Celsius or Fahrenheit? (C/F): ")
 
-match degree :
+if degree == 'C':
+    converted = convert_to_fahrenheit(temperature)
+    print(f"{temperature}°C is {converted}°F")
+elif degree == 'F':
+    converted = convert_to_celsius(temperature)
+    print(f"{temperature}°F is {converted}°C")
+else:
+    print("Invalid degree. Please enter 'C' for Celsius or 'F' for Fahrenheit.")
 
-    case "F"  :
-        print(convert_to_celsius(temperature))
-        print()
-
-    case "C" :
-        print(f"{temperature} is {convert_to_fahrenheit(temperature)}")
-        print()
-
-    case _ :
-        print(" Invalid conversion degree !")
 
     
