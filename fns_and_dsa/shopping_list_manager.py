@@ -19,13 +19,13 @@ def main():
             item = input("add an item to the shopping list: ")
             shopping_list.append(item)
             print()
-            pass
+         
         elif choice == '2':
             # Prompt for and remove an item
             item_removed = input("enter item to be removed from the shopping list: ")
             shopping_list.remove(item_removed)
             print()
-            pass
+           
         elif choice == '3':
             # Display the shopping list
             print("The current shopping list")
@@ -33,7 +33,7 @@ def main():
             for item in shopping_list:
                 print(item)
             print()
-            pass
+            
         elif choice == '4':
             print("Goodbye!")
             break
